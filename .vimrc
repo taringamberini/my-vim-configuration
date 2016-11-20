@@ -4,7 +4,8 @@
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
-" required by Vundle
+"
+" Also required by Vundle
 set nocompatible
 
 " required by Vundle
@@ -24,7 +25,12 @@ Plugin 'VundleVim/Vundle.vim'
 
 " My plugins follows:
 
-" Vim essential plugin
+" Think of sensible.vim as one step above 'nocompatible' mode: a universal
+" set of defaults that (hopefully) everyone can agree on.
+" See https://github.com/tpope/vim-sensible
+Plugin 'tpope/vim-sensible'
+
+" Suggested by https://code.tutsplus.com/series/vim-essential-plugins--net-19224
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-surround'
 
@@ -41,7 +47,7 @@ call vundle#end()
 " If you plan on using file type based indentation, don't set 'smartindent'
 " or 'cindent'. You may still set 'autoindent', since it doesn't interfere.
 "
-" required by Vundle
+" Also required by Vundle
 filetype plugin indent on
 
 " Brief help
@@ -56,30 +62,6 @@ filetype plugin indent on
 
 " ============================= GENERAL SETTINGS ==============================
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start 
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file
-endif
-
-" keep 50 lines of command line history
-set history=50
-
-" show the cursor position all the time
-set ruler
-
-" display incomplete commands
-set showcmd
-
-" do incremental searching
-set incsearch 
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
-
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
@@ -87,10 +69,12 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
+
+
 " ================================== EDITING ================================== 
 
 " Set default encoding as UTF-8
-" http://vim.wikia.com/wiki/Working_with_Unicode
+" See http://vim.wikia.com/wiki/Working_with_Unicode
 if has("multi_byte")
   if &termencoding == ""
     let &termencoding = &encoding
@@ -105,11 +89,12 @@ endif
 set number
 set numberwidth=5
 
+" Converting tabs to spaces
+" See http://vim.wikia.com/wiki/Converting_tabs_to_spaces
 set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set autoindent
 
 " Reselect visual block after indent/outdent
 vnoremap < <gv
@@ -125,11 +110,15 @@ inoremap <Down>  <NOP>
 inoremap <Left>  <NOP>
 inoremap <Right> <NOP>
 
+
+
 " ============================== FONTS AND COLORS =============================
 
 " fonts
 set guifont=DejaVu\ Sans\ Mono\ 12
 
 " colors
-colorscheme evening
+" colorscheme evening
 
+" highlight OverLength ctermbg=DarkRed ctermfg=white guibg=#592929
+" match OverLength /\%81v.\+/
