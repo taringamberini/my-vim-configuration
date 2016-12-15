@@ -30,6 +30,10 @@ Plugin 'VundleVim/Vundle.vim'
 " See https://github.com/tpope/vim-sensible
 Plugin 'tpope/vim-sensible'
 
+" Suggested by Pratical Vim - second edition - by Drew Neil
+" See https://github.com/tpope/vim-commentary
+Plugin 'tpope/vim-commentary'
+
 " Suggested by https://code.tutsplus.com/series/vim-essential-plugins--net-19224
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-surround'
@@ -108,7 +112,7 @@ inoremap <Right> <NOP>
 set guifont=DejaVu\ Sans\ Mono\ 12
 
 " colors
-" colorscheme evening
+colorscheme evening
 
 " highlight OverLength ctermbg=DarkRed ctermfg=white guibg=#592929
 " match OverLength /\%81v.\+/
